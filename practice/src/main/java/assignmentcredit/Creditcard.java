@@ -43,9 +43,9 @@ public class Creditcard implements Cloneable {
 			l.info("The entered card number is different"); 
 		}
 		Creditcard b = (Creditcard)c.clone(); 
-		l.info("Details of new credit card:");
-		l.info("Name :" + b.name );
-		l.info("Credit Card Number :" + b.cardnumnber);
-		l.info("Expiry Date :" + b.date);
+		Logger.log("Details of new credit card:");
+		Logger.log("Name :" + b.name );
+		Logger.log("Credit Card Number :" + b.cardnumnber);
+		Logger.log("Expiry Date :" + b.date);
 	}
 }
