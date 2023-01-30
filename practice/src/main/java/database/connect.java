@@ -3,6 +3,7 @@ import java.sql.*;
 public class connect {
 	static Connection con;
 	static Statement stmt;
+	static String pass = "S.arun2002";
 	private static connect instance = null;
 	private connect()
 	{
@@ -19,7 +20,6 @@ public class connect {
 	{
 		try {
             Class.forName("com.mysql.cj.jdbc.Driver"); 
-            String pass = "S.arun2002";
             con=DriverManager.getConnection("jdbc:mysql://localhost:3306/student","root",pass);
             System.out.println("Database get connected:");
             System.out.println("Inserting records into database!!");
