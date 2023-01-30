@@ -32,7 +32,7 @@ public class Connect {
         }
         catch(Exception e)
         {
-        	System.out.println(e);
+        	logger.log(e);
         }
 	}
 	public static void closeconnection() throws SQLException
