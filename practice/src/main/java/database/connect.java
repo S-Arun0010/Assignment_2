@@ -19,7 +19,8 @@ public class connect {
 	{
 		try {
             Class.forName("com.mysql.cj.jdbc.Driver"); 
-            con=DriverManager.getConnection("jdbc:mysql://localhost:3306/student","root","S.arun2002");
+            String pass = "S.arun2002";
+            con=DriverManager.getConnection("jdbc:mysql://localhost:3306/student","root",pass);
             System.out.println("Database get connected:");
             System.out.println("Inserting records into database!!");
             String sql="Insert into student values(8,'arun',8.5)";
