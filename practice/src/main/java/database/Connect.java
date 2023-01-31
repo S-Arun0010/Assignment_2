@@ -32,7 +32,7 @@ public class Connect {
         }
         catch(Exception e)
         {
-        	logger.log(e);
+        	l.log(Level.INFO,()-> e);
         }
 	}
 	public static void closeconnection() throws SQLException
