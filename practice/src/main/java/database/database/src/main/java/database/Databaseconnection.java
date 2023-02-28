@@ -28,13 +28,13 @@ public class Databaseconnection {
 	{
 		Singleton c = Singleton.getInstance();
 		Databaseconnection data = new Databaseconnection();
-		data.getconnect();
+		getconnect();
 		state = con.createStatement();
 		String sql="insert into student values(7,'arun',8.5)";
 		state.executeUpdate(sql);
 		sql = "Delete from student where id=7;";
 		state.executeUpdate(sql);		
-		data.closeconnection();
+		closeconnection();
 	}
 	catch(SQLException e)
 	{
