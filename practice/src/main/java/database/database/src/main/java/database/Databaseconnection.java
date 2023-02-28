@@ -9,11 +9,12 @@ public class Databaseconnection {
 	static PrintStream print = new PrintStream(new FileOutputStream(FileDescriptor.out));
 	static Connection con;
 	static Statement state;
+	static String password = "S.arun2002";
 	
 	public static void getconnect() throws ClassNotFoundException, SQLException
 	{
 		
-		String password = "S.arun2002";
+		
 
 		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/student","root",password);
 		print.println("Database get connected:");
@@ -27,7 +28,6 @@ public class Databaseconnection {
 	{   try
 	{
 		Singleton c = Singleton.getInstance();
-		Databaseconnection data = new Databaseconnection();
 		getconnect();
 		state = con.createStatement();
 		String sql="insert into student values(7,'arun',8.5)";
