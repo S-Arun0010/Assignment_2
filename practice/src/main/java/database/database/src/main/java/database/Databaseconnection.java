@@ -3,6 +3,7 @@ import java.sql.*;
 import java.io.FileDescriptor;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
+import java.lang.*;
 
 public class Databaseconnection {
 	
@@ -10,13 +11,15 @@ public class Databaseconnection {
 	static Connection con;
 	static Statement state;
 	
-	public void getconnect() throws ClassNotFoundException, SQLException
+	public static void getconnect() throws ClassNotFoundException, SQLException
 	{
+		
+		String password = "S.arun2002";
 
-		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/student","root","S.arun2002");
+		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/student","root",password);
 		print.println("Database get connected:");
 	}
-	public void closeconnection() throws SQLException
+	public static void closeconnection() throws SQLException
 	{   
 		con.close();
 		print.println("Database get closed:");
