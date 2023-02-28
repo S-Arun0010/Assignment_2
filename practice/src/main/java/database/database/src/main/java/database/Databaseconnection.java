@@ -3,7 +3,6 @@ import java.sql.*;
 import java.io.FileDescriptor;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
-import java.lang.*;
 
 public class Databaseconnection {
 	
@@ -24,8 +23,9 @@ public class Databaseconnection {
 		con.close();
 		print.println("Database get closed:");
 	}
-	public static void main(String[] args) throws ClassNotFoundException, SQLException
-	{   
+	public static void main(String[] args) 
+	{   try
+	{
 		Singleton c = Singleton.getInstance();
 		Databaseconnection data = new Databaseconnection();
 		data.getconnect();
@@ -35,6 +35,15 @@ public class Databaseconnection {
 		sql = "Delete from student where id=7;";
 		state.executeUpdate(sql);		
 		data.closeconnection();
+	}
+	catch(SQLException e)
+	{
+		print.println(e);
+	}
+	catch(ClassNotFoundException e)
+	{
+		print.println(e);
+	}
 	}
 
 }
