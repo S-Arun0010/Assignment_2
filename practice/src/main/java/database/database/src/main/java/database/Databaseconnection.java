@@ -9,13 +9,13 @@ public class Databaseconnection {
 	static PrintStream print = new PrintStream(new FileOutputStream(FileDescriptor.out));
 	static Connection con;
 	static Statement state;
-	static String password = "S.arun2002";
+	static String pass = "S.arun2002";
 	
 	public static void getconnect() 
 	{ 
 		try
 	{
-		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/student","root",password);
+		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/student","root",pass);
 		print.println("Database get connected:");
 	}
 	catch(SQLException e)
