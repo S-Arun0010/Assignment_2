@@ -1,51 +1,57 @@
 package assignmentcredit;
 import java.util.Scanner;
-import java.util.logging.Logger;
+import java.io.FileDescriptor;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
+
 public class Creditcard implements Cloneable {
+	static PrintStream print = new PrintStream(new FileOutputStream(FileDescriptor.out));
 	String name;
 	String cardnumnber;
 	String date;
-	public Creditcard(String n,String nu,String d)
+	public Creditcard(String name,String number,String date)
 	{
-	    name = n;
-	    cardnumnber = nu;
-	    date = d;
+	    this.name = name;
+	    cardnumnber = number;
+	    this.date = date;
 	}
 	protected Object clone() throws CloneNotSupportedException
 	{
 		return super.clone();
 	}
+	
 	public static void main(String[] args)throws CloneNotSupportedException {
 		Scanner sc =  new Scanner(System.in);
-		Logger l= Logger.getLogger("com.api.jar");
-		l.info("Enter the Card details");
-		l.info("Card Name :");
+		print.println("Enter the Card details");
+		print.println("Card Name :");
 		String name = sc.nextLine();
-		l.info("Card Number :");
-		String no = sc.nextLine();
-		l.info("Expiry date :");
+		print.println("Card Number :");
+		String number = sc.nextLine();
+		print.println("Expiry date :");
 		String date = sc.nextLine();
-		Creditcard c = new Creditcard(name,no,date);
-		l.info("Enter the Card details");
-		l.info("Card Name :");
-		String na = sc.nextLine();
-		l.info("Card_Number :");
-		String nu = sc.nextLine();
-		l.info("Expiry date :");
-		String da = sc.nextLine();
-		Creditcard d = new Creditcard(na,nu,da);
-		if((c.cardnumnber).equals(d.cardnumnber))
+		Creditcard a = new Creditcard(name,number,date);
+		print.println("Enter the Card details");
+		print.println("Card Name :");
+		String name1 = sc.nextLine();
+		print.println("Card_Number :");
+		String number1 = sc.nextLine();
+		print.println("Expiry date :");
+		String date1 = sc.nextLine();
+		Creditcard b = new Creditcard(name1,number1,date1);
+		
+		if((a.cardnumnber).equals(b.cardnumnber))
 		{
-			l.info("The entered card number is same as original name");
+			print.println("The entered card number is same as original Card:");
 		}
 		else
 		{
-			l.info("The entered card number is different"); 
+			print.println("The entered card number is different"); 
 		}
-		Creditcard b = (Creditcard)c.clone(); 
-		l.log(Level.INFO,()->"Details of new credit card:");
-		l.log(Level.INFO,()->"Name :" + b.name );
-		l.log(Level.INFO,()->"Credit Card Number :" + b.cardnumnber);
-		l.log(Level.INFO,()->"Expiry Date :" + b.date);
+		
+		Creditcard c = (Creditcard)a.clone(); 
+		print.println("Details of new cloned credit card:");
+		print.println("Name :" + c.name );
+		print.println("Credit Card Number :" + c.cardnumnber);
+		print.println("Expiry Date :" + c.date);
 	}
 }
