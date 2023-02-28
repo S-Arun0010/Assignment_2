@@ -11,13 +11,21 @@ public class Databaseconnection {
 	static Statement state;
 	static String password = "S.arun2002";
 	
-	public static void getconnect() throws ClassNotFoundException, SQLException
+	public static void getconnect() 
+	{ 
+		try
 	{
-		
-		
-
 		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/student","root",password);
 		print.println("Database get connected:");
+	}
+	catch(SQLException e)
+	{
+		print.println(e);
+	}
+		catch(Exception e)
+		{
+	    	print.println(e);
+		}
 	}
 	public static void closeconnection() throws SQLException
 	{   
@@ -27,7 +35,7 @@ public class Databaseconnection {
 	public static void main(String[] args) 
 	{   try
 	{
-		Singleton c = Singleton.getInstance();
+		Singleton.getInstance();
 		getconnect();
 		state = con.createStatement();
 		String sql="insert into student values(7,'arun',8.5)";
@@ -40,9 +48,9 @@ public class Databaseconnection {
 	{
 		print.println(e);
 	}
-	catch(ClassNotFoundException e)
+    catch(Exception e)
 	{
-		print.println(e);
+    	print.println(e);
 	}
 	}
 
